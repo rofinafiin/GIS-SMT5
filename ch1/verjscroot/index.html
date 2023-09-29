@@ -5,17 +5,48 @@
   </head>
 <body>
 
-
-<table class="table">
+<div>
+<table class="table-point" border="1">
+    <h1>Point table</h1>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Nama</th>
+            <th>Koordinat</th>
+        </tr>
+    </thead>
   <tbody id="lokasi">
-    <tr>
-      <th>Type</th>
-      <th>Nama</th>
-      <th>Kordinat</th>
-    </tr>
   </tbody>
 </table>
-
+</div>
+<br><br>
+<div>
+<table class="table-polygon" border="1">
+    <h1>Polygon table</h1>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Nama</th>
+            <th>Koordinat</th>
+        </tr>
+    </thead>
+    <tbody id="polygon">
+    </tbody>
+  </table>
+<br><br>
+  <table class="table-line" border="1">
+    <h1>Line String table</h1>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Nama</th>
+            <th>Koordinat</th>
+        </tr>
+    </thead>
+    <tbody id="line">
+    </tbody>
+  </table>
+</div>
 <script type="module" src="./get.js"></script>
 
 </body>
