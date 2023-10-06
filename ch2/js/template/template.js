@@ -1,4 +1,4 @@
-export let URLGeoJson = "../../data.json";
+export let URLGeoJson = "https://raw.githubusercontent.com/rofinafiin/GIS-SMT5/master/data.json";
 export let tableTag="tr";
 export let tableRowClass="content is-small";
 export let tableTemplate=`
