@@ -1,4 +1,4 @@
-export let URLGeoJson = "../../json/data.json";
+export let URLGeoJson = "../../data.json";
 export let tableTag="tr";
 export let tableRowClass="content is-small";
 export let tableTemplate=`
