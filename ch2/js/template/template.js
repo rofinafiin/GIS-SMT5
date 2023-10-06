@@ -2,9 +2,9 @@ export let URLGeoJson = "https://raw.githubusercontent.com/rofinafiin/GIS-SMT5/m
 export let tableTag="tr";
 export let tableRowClass="content is-small";
 export let tableTemplate=`
-<td>#TYPE#</td>
 <td>#NAME#</td>
-<td>#KORDINAT#</td>
+<td >#KORDINAT#</td>
+<td>#TYPE#</td>
 `
 export const clickpopup = `
 Long : #LONG#<br>
