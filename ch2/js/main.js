@@ -41,19 +41,19 @@ get(URLGeoJson,responseData);
         style: function (feature) {
             const featureType = feature.getGeometry().getType();
             
-            // Check if the feature is a Polygon and apply a red stroke color
+           
             if (featureType === 'Polygon') {
                 return new ol.style.Style({
                     stroke: new ol.style.Stroke({
-                        color: 'yellow', // Red stroke color for polygons
+                        color: 'yellow', 
                         width: 4
                     })
                 });
             } else {
-                // Default style for other geometry types (e.g., lines)
+                
                 return new ol.style.Style({
                     stroke: new ol.style.Stroke({
-                        color: 'orange', // Green stroke color for other types
+                        color: 'orange', 
                         width: 4
                     })
                 });
@@ -63,20 +63,4 @@ get(URLGeoJson,responseData);
 
     map.addLayer(layerpoint);
     map.addLayer(polylayer);
-    // map.addLayer(lineLayer);
-
-    //dapatkan koordinat dari GeoJSON
-    function getCoordinates(source) {
-        var features = source.getFeatures();
-        var coordinates = features[0].getGeometry().getCoordinates();
-        return coordinates;
-    }
-
-    //tampilkan koordinat di dalam tabel
-    pointSource.once('change', function() {
-        var pointCoords = getCoordinates(pointSource);
-        document.getElementById('featurename').textContent = 'Point';
-        document.getElementById('featureType').textContent = 'Point';
-        document.getElementById('featureCoords').textContent = pointCoords.toString();
-    });
 
