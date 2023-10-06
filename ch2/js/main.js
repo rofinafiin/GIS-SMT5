@@ -1,20 +1,20 @@
 import { get } from "https://jscroot.github.io/api/croot.js";
-import {responseData} from "./controller/controller.js"
-import {URLGeoJson} from "./template/template.js"
+import { URLGeoJson } from "./template/template.js";
+import { responseData } from "./controller/controller.js";
 import {map} from './config/configpeta.js';
 import {onClosePopupClick,onDeleteMarkerClick,onSubmitMarkerClick,onMapClick,onMapPointerMove,disposePopover} from './controller/popup.js';
 import {onClick} from 'https://jscroot.github.io/element/croot.js';
 import {getAllCoordinates} from './controller/cog.js';
 
-// onClick('popup-closer',onClosePopupClick);
-// onClick('insertmarkerbutton',onSubmitMarkerClick);
-// onClick('hapusbutton',onDeleteMarkerClick);
-// onClick('hitungcogbutton',getAllCoordinates);
+onClick('popup-closer',onClosePopupClick);
+onClick('insertmarkerbutton',onSubmitMarkerClick);
+onClick('hapusbutton',onDeleteMarkerClick);
+onClick('hitungcogbutton',getAllCoordinates);
 
 map.on('click', onMapClick);
 map.on('pointermove', onMapPointerMove);
 map.on('movestart', disposePopover);
-get(URLGeoJson,responseData);
+get(URLGeoJson,responseData); 
 
 
     //download data point, polygon, dan polyline
@@ -27,15 +27,14 @@ get(URLGeoJson,responseData);
     const layerpoint = new ol.layer.Vector({
         source: pointSource,
         style: new ol.style.Style({
-            image: new ol.style.Circle({
-                radius: 5,
-                fill: new ol.style.Fill({
-                    color: 'blue'
-                })
+            image: new ol.style.Icon({
+                src: 'img/icog.png', 
+                scale: 0.5, 
+                opacity: 1
             })
         })
     });
-
+    
     const polylayer = new ol.layer.Vector({
         source: pointSource,
         style: function (feature) {
@@ -45,22 +44,22 @@ get(URLGeoJson,responseData);
             if (featureType === 'Polygon') {
                 return new ol.style.Style({
                     stroke: new ol.style.Stroke({
-                        color: 'yellow', 
-                        width: 4
+                        color: 'blue', 
+                        width: 2
                     })
                 });
             } else {
                 
                 return new ol.style.Style({
                     stroke: new ol.style.Stroke({
-                        color: 'orange', 
-                        width: 4
+                        color: 'red', 
+                        width: 3
                     })
                 });
             }
         }
     });
 
-    map.addLayer(layerpoint);
     map.addLayer(polylayer);
+    map.addLayer(layerpoint);
 

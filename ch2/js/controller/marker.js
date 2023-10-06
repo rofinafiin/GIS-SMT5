@@ -20,7 +20,7 @@ export function insertMarker(name,long,lat,volume){
             anchor: [0.5, 46],
             anchorXUnits: 'fraction',
             anchorYUnits: 'pixels',
-            src: '../img/icon.png',
+            src: 'img/icon.png',
           }),
         })
       );
@@ -68,7 +68,7 @@ export function insertMarkerCOG(x,y){
           anchor: [0.5, 46],
           anchorXUnits: 'fraction',
           anchorYUnits: 'pixels',
-          src: '../../img/icog.png',
+          src: 'img/icog.png',
         }),
       })
     );
