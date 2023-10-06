@@ -6,13 +6,62 @@ import {onClosePopupClick,onDeleteMarkerClick,onSubmitMarkerClick,onMapClick,onM
 import {onClick} from 'https://jscroot.github.io/element/croot.js';
 import {getAllCoordinates} from './controller/cog.js';
 
-onClick('popup-closer',onClosePopupClick);
-onClick('insertmarkerbutton',onSubmitMarkerClick);
-onClick('hapusbutton',onDeleteMarkerClick);
-onClick('hitungcogbutton',getAllCoordinates);
+// onClick('popup-closer',onClosePopupClick);
+// onClick('insertmarkerbutton',onSubmitMarkerClick);
+// onClick('hapusbutton',onDeleteMarkerClick);
+// onClick('hitungcogbutton',getAllCoordinates);
 
 map.on('click', onMapClick);
 map.on('pointermove', onMapPointerMove);
 map.on('movestart', disposePopover);
 get(URLGeoJson,responseData);
+
+
+    //download data point, polygon, dan polyline
+    const pointSource = new ol.source.Vector({
+        url: URLGeoJson,
+        format: new ol.format.GeoJSON()
+    });
+
+    //buat layer untuk point, polygon, dan polyline
+    const layerpoint = new ol.layer.Vector({
+        source: pointSource,
+        style: new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 5,
+                fill: new ol.style.Fill({
+                    color: 'blue'
+                })
+            })
+        })
+    });
+
+    const polylayer = new ol.layer.Vector({
+        source: pointSource,
+        style: new ol.style.Style({
+            stroke: new ol.style.Stroke({
+                color: 'green',
+                width: 4
+            })
+        })
+    });
+
+    map.addLayer(layerpoint);
+    map.addLayer(polylayer);
+    // map.addLayer(lineLayer);
+
+    //dapatkan koordinat dari GeoJSON
+    function getCoordinates(source) {
+        var features = source.getFeatures();
+        var coordinates = features[0].getGeometry().getCoordinates();
+        return coordinates;
+    }
+
+    //tampilkan koordinat di dalam tabel
+    pointSource.once('change', function() {
+        var pointCoords = getCoordinates(pointSource);
+        document.getElementById('featurename').textContent = 'Point';
+        document.getElementById('featureType').textContent = 'Point';
+        document.getElementById('featureCoords').textContent = pointCoords.toString();
+    });
 
