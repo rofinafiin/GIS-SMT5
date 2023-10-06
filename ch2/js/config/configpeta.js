@@ -36,8 +36,8 @@ export let map = new ol.Map({
             })
         ],
         view: new ol.View({
-            center: ol.proj.fromLonLat([107.6202256201097,
-                -6.897701152405389]),
-            zoom: 15
+            center: ol.proj.fromLonLat([107.61872560679939,
+                -6.90125474233507]),
+            zoom: 17
         })
 });

@@ -38,12 +38,27 @@ get(URLGeoJson,responseData);
 
     const polylayer = new ol.layer.Vector({
         source: pointSource,
-        style: new ol.style.Style({
-            stroke: new ol.style.Stroke({
-                color: 'green',
-                width: 4
-            })
-        })
+        style: function (feature) {
+            const featureType = feature.getGeometry().getType();
+            
+            // Check if the feature is a Polygon and apply a red stroke color
+            if (featureType === 'Polygon') {
+                return new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: 'yellow', // Red stroke color for polygons
+                        width: 4
+                    })
+                });
+            } else {
+                // Default style for other geometry types (e.g., lines)
+                return new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: 'orange', // Green stroke color for other types
+                        width: 4
+                    })
+                });
+            }
+        }
     });
 
     map.addLayer(layerpoint);
