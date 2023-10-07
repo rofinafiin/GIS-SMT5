@@ -30,20 +30,6 @@ export function responseData(results){
     results.features.forEach(isiRowPoint);
     results.features.forEach(isiRowPolygon);
     results.features.forEach(isiRowPolyline);
-    results.features.forEach(ColorSwitcher);
+   
 }
 
-export function ColorSwitcher(value, map, source){
-    if (value.geometry.type === "Polygon") {
-        const LineLayer = new ol.layer.Vector({
-            source: pointSource,
-            style: new ol.style.Style({
-                stroke: new ol.style.Stroke({
-                    color: 'red',
-                    width: 4
-                })
-            })
-        });
-        map.addLayer(LineLayer)
-}
-}
