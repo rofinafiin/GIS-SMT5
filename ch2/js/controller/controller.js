@@ -39,7 +39,7 @@ export function isiRowPolyline(value){
 //     return geojsonString;
 // }
 
-export function MakeGeojsonFromAPI(value, fileName) {
+export function MakeGeojsonFromAPI(value) {
     const geojsonFeatureCollection = {
         type: "FeatureCollection",
         features: value
@@ -53,9 +53,9 @@ export function MakeGeojsonFromAPI(value, fileName) {
 
     const link = document.createElement("a");
     link.href = url;
-    link.download = fileName || "data.geojson"; 
+    // link.download = fileName || "data.geojson"; 
 
-    document.body.appendChild(link);
+    // document.body.appendChild(link);
 
     return link;
 }
