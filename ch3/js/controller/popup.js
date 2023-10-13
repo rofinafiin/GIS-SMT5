@@ -47,7 +47,7 @@ function popupInputMarker(evt) {
 }
 
 function popupGetMarker(evt,features) {
-    let title = features.getId()+"#"+features.get('Name');
+    let title = features.get('name');
     setInner('popupinfo-title',title);
     setValue('idmarker',features.get('id'));
     let ctnt = "type : "+features.getGeometry().getType()+"<br>XY : "+toLonLat(evt.coordinate);
