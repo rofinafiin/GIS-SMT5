@@ -1,10 +1,11 @@
 import { get } from "https://jscroot.github.io/api/croot.js";
 import { URLGeoJson } from "./template/template.js";
-import { responseData } from "./controller/controller.js";
+import { MakeGeojsonFromAPI, responseData } from "./controller/controller.js";
 import {map} from './config/configpeta.js';
 import {onClosePopupClick,onDeleteMarkerClick,onSubmitMarkerClick,onMapClick,onMapPointerMove,disposePopover} from './controller/popup.js';
 import {onClick} from 'https://jscroot.github.io/element/croot.js';
 import {getAllCoordinates} from './controller/cog.js';
+
 
 onClick('popup-closer',onClosePopupClick);
 onClick('insertmarkerbutton',onSubmitMarkerClick);
@@ -14,14 +15,25 @@ onClick('hitungcogbutton',getAllCoordinates);
 map.on('click', onMapClick);
 map.on('pointermove', onMapPointerMove);
 map.on('movestart', disposePopover);
-get(URLGeoJson,responseData); 
+    
+get(URLGeoJson,data => {
+    responseData(data)
+    // let geojson = MakeGeojsonFromAPI(data)
+    let link = MakeGeojsonFromAPI(data, "data.json")
+    console.log(link)
+    // console.log(geojson)
+    AddLayerToMAP(link)
+}); 
+
+// AddLayerToMAP(URLGeoJson)
 
 
     //download data point, polygon, dan polyline
+   function AddLayerToMAP(geojson){ 
     const Sourcedata = new ol.source.Vector({
-        url: URLGeoJson,
-        format: new ol.format.GeoJSON()
-    });
+        url: geojson,
+        format: new ol.format.GeoJSON(),
+      });
 
     const geojsonFeatureCollection = {
         type: "FeatureCollection",
@@ -68,5 +80,4 @@ get(URLGeoJson,responseData);
     });
 
     map.addLayer(polylayer);
-    map.addLayer(layerpoint);
-
+    map.addLayer(layerpoint);}
