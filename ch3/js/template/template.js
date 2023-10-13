@@ -1,4 +1,4 @@
-export let URLGeoJson = "https://raw.githubusercontent.com/rofinafiin/GIS-SMT5/master/data.json";
+export let URLGeoJson = "https://us-central1-gis-project-401902.cloudfunctions.net/GIS-Project";
 export let tableTag="tr";
 export let tableRowClass="content is-small";
 export let tableTemplate=`

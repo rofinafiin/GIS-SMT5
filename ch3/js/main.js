@@ -18,14 +18,21 @@ get(URLGeoJson,responseData);
 
 
     //download data point, polygon, dan polyline
-    const pointSource = new ol.source.Vector({
+    const Sourcedata = new ol.source.Vector({
         url: URLGeoJson,
         format: new ol.format.GeoJSON()
     });
 
+    const geojsonFeatureCollection = {
+        type: "FeatureCollection",
+        features: Sourcedata
+    };
+
+    console.log(geojsonFeatureCollection)
+
     //buat layer untuk point, polygon, dan polyline
     const layerpoint = new ol.layer.Vector({
-        source: pointSource,
+        source: Sourcedata,
         style: new ol.style.Style({
             image: new ol.style.Icon({
                 src: 'img/icog.png', 
@@ -36,7 +43,7 @@ get(URLGeoJson,responseData);
     });
     
     const polylayer = new ol.layer.Vector({
-        source: pointSource,
+        source: Sourcedata,
         style: function (feature) {
             const featureType = feature.getGeometry().getType();
             
