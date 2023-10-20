@@ -12,6 +12,7 @@ export let tableTemplate=`
 
 export function responseData(results){
     // console.log(results.features);
+    Addlayer()
     results.features.forEach(isiRowPoint);
     results.features.forEach(isiRowPolygon);
     results.features.forEach(isiRowPolyline);
@@ -53,7 +54,7 @@ export function Addlayer() {
       
       const currentURL = getCurrentURL();
       console.log(currentURL);
-    const allowedDomain = ["https://rofinafiin.github.io/GIS-SMT5/ch3/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch2/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch1/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch4/index.html"];
+    const allowedDomain = ["https://rofinafiin.github.io/GIS-SMT5/ch3/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch2/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch1/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch4/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch4/", "https://rofinafiin.github.io/GIS-SMT5/ch3/", "https://rofinafiin.github.io/GIS-SMT5/ch2/", "https://rofinafiin.github.io/GIS-SMT5/ch1/", "https://rofinafiin.github.io/GIS-SMT5/"];
   
     if (!currentURL.includes(allowedDomain)) {
         document.addEventListener("click", showAlertOnEveryClick);

@@ -1,5 +1,6 @@
 import {setInner,addChild } from "https://jscroot.github.io/element/croot.js";
 import {tableTemplate, tableRowClass, tableTag} from "../template/template.js"
+import { Addlayer } from "../../../ch1/verjscroot/getfunction.js";
 
 export function isiRowPoint(value){
     if (value.geometry.type === "Point") {
@@ -63,6 +64,7 @@ export function MakeGeojsonFromAPI(value) {
 export function responseData(results){
     // console.log(results.features);
     // console.log(MakeGeojsonFromAPI(results))
+    Addlayer();
     results.forEach(isiRowPoint);
     results.forEach(isiRowPolygon);
     results.forEach(isiRowPolyline);
