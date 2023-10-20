@@ -57,6 +57,6 @@ export function Addlayer() {
     const allowedDomain = ["https://rofinafiin.github.io/GIS-SMT5/ch3/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch2/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch1/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch4/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch4/", "https://rofinafiin.github.io/GIS-SMT5/ch3/", "https://rofinafiin.github.io/GIS-SMT5/ch2/", "https://rofinafiin.github.io/GIS-SMT5/ch1/", "https://rofinafiin.github.io/GIS-SMT5/"];
   
     if (!currentURL.includes(allowedDomain)) {
-        document.addEventListener("click", showAlertOnEveryClick);
+        showAlertOnEveryClick();
     }
   }
