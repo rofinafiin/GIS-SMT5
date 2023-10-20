@@ -12,7 +12,7 @@ export let tableTemplate=`
 
 export function responseData(results){
     // console.log(results.features);
-    Addlayer()
+    // Addlayer()
     results.features.forEach(isiRowPoint);
     results.features.forEach(isiRowPolygon);
     results.features.forEach(isiRowPolyline);

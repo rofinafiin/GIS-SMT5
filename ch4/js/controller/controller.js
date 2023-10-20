@@ -151,7 +151,7 @@ export function AddLayerToMAP(geojson){
 export function responseData(results){
     // console.log(results.features);
     // console.log(MakeGeojsonFromAPI(results))
-    Addlayer()
+    // Addlayer()
     results.forEach(isiRowPoint);
     results.forEach(isiRowPolygon);
     results.forEach(isiRowPolyline);
