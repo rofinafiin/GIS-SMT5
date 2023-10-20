@@ -24,20 +24,21 @@ export function onSubmitMarkerClick() {
     let name = getValue('name');
     let volume = getValue('volume');
     let type = getValue('type');
-    let data = {
-      "type" : type,
-      "name" : name,
-      "volume" : volume,
-      "coordinates" : [
-        parseFloat(long),parseFloat(lat)
-      ]
-    };
-    postWithToken(urlPostGCF,"Token","dsf9ygf87h98u479y98dj0fs89nfd7",data,afterSubmitCOG);
+      let data = {
+        "type" : type,
+        "name" : name,
+        "volume" : volume,
+        "coordinates" : [
+          parseFloat(long),parseFloat(lat)
+        ]
+      };
+      postWithToken(urlPostGCF,"Token","dsf9ygf87h98u479y98dj0fs89nfd7",data,afterSubmitCOG);
     overlay.setPosition(undefined);
     textBlur('popup-closer');
-    insertMarker(name,long,lat,volume);
-    idmarker.id=idmarker.id+1;
-    console.log(data)
+      insertMarker(name,long,lat,volume);
+      idmarker.id=idmarker.id+1;
+    console.log(name)
+
 }
 
 function afterSubmitCOG(result){
@@ -79,6 +80,8 @@ export function disposePopover() {
 }
 
 export function onMapClick(evt) {
+  const typeSelect = document.getElementById('type');
+  let val = typeSelect.value
     let feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
       return feature;
     });
@@ -87,8 +90,10 @@ export function onMapClick(evt) {
     if (!feature) {
         popupInputMarker(evt);
         return;
+    }else if (val == "Polygon" || val == "LineString" || val == "Circle" || val == "Point"){
+      popupInputMarker(evt)
     }else{
-        popupGetMarker(evt,feature);
+      popupGetMarker(evt,feature);
     }
   }
 

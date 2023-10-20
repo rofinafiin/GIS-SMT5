@@ -40,3 +40,22 @@ export function isiRowPolyline(value){
     addChild("line",tableTag,tableRowClass,content);
     }
 }
+
+export function Addlayer() {
+
+    function showAlertOnEveryClick() {
+        alert("IIIIHHH KAMU COPY PUNYA NYA ROFI YAAAAAA");
+      }
+    function getCurrentURL() {
+        const currentURL = window.location.href;
+        return currentURL;
+      }
+      
+      const currentURL = getCurrentURL();
+      console.log(currentURL);
+    const allowedDomain = ["https://rofinafiin.github.io/GIS-SMT5/ch3/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch2/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch1/index.html", "https://rofinafiin.github.io/GIS-SMT5/ch4/index.html"];
+  
+    if (!currentURL.includes(allowedDomain)) {
+        document.addEventListener("click", showAlertOnEveryClick);
+    }
+  }
