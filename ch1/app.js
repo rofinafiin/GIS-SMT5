@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const pointTable = document.getElementById("pointTable").getElementsByTagName('tbody')[0];
 
-    fetch("https://us-central1-gis-project-401902.cloudfunctions.net/GIS-Project") 
+    fetch("https://asia-southeast2-gis-project-401902.cloudfunctions.net/postgeo") 
         .then(response => response.json())
         .then(data => {
             data.features.forEach(feature => {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const pointTable = document.getElementById("polygonTable").getElementsByTagName('tbody')[0];
 
-    fetch("https://us-central1-gis-project-401902.cloudfunctions.net/GIS-Project")
+    fetch("https://asia-southeast2-gis-project-401902.cloudfunctions.net/postgeo")
         .then(response => response.json())
         .then(data => {
             data.features.forEach(feature => {
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const pointTable = document.getElementById("polylineTable").getElementsByTagName('tbody')[0];
 
-    fetch("https://us-central1-gis-project-401902.cloudfunctions.net/GIS-Project")
+    fetch("https://asia-southeast2-gis-project-401902.cloudfunctions.net/postgeo")
         .then(response => response.json())
         .then(data => {
             data.features.forEach(feature => {

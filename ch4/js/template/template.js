@@ -1,4 +1,4 @@
-export let URLGeoJson = "https://us-central1-gis-project-401902.cloudfunctions.net/GIS-Project";
+export let URLGeoJson = "https://asia-southeast2-gis-project-401902.cloudfunctions.net/postgeo";
 export let urlPostGCF = "https://asia-southeast2-gis-project-401902.cloudfunctions.net/PostCoordinate-GIS";
 export let tableTag="tr";
 export let tableRowClass="content is-small";
